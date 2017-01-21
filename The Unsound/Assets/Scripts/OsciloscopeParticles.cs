@@ -7,6 +7,7 @@ public class OsciloscopeParticles : MonoBehaviour {
 
 	public float amplitude;
 	public float frequency;
+
 	private int nBolitas = 1000;// ulises 
 	private float increment;
 	private float deltaMovement = 0;
@@ -14,70 +15,62 @@ public class OsciloscopeParticles : MonoBehaviour {
 	private Vector2 borderSize;
 
 	void Start(){
-		p = gameObject.GetComponent<ParticleSystem> ();
-		amplitude = 0.1f;
-		frequency = 2f;
-		borderSize = gameObject.GetComponentInParent<BoxCollider2D> ().size;
+		p = gameObject.GetComponent<ParticleSystem> ();	//Agarra el ParticleSystem del objeto
+		amplitude = 0.1f;	//Amplitud Default
+		frequency = 2f;		//Frecuencia default
+		borderSize = gameObject.GetComponentInParent<BoxCollider2D> ().size;	//Consigue el tamaño del collider paa usar como guia
 		increment = borderSize.x / nBolitas; //Delta x porque son 500 bolitas entre el tamaño del rectangulo
-		CreatePoints();
+		points = new ParticleSystem.Particle[nBolitas];	//Arreglo de particulas para el ParticleSystem
+		CreatePoints();	//Crea los puntos
 	}
 
 	private void CreatePoints () {
-		points = new ParticleSystem.Particle[nBolitas];
-		for (int i = 0; i < nBolitas; i++) {
-			points [i].position = new Vector3 (increment*i - borderSize.x/2, 0f,funcionFeliz(increment*i));
-
-			points[i].color = new Color(i, 0f, 0f);
-			points[i].size = 0.1f;
+		
+		for (int i = 0; i < nBolitas; i++) {	//Recorre todas las bolitas
+			points [i].position = new Vector3 (increment*i - borderSize.x/2, 0f, funcionFeliz(increment*i));	//Les asigna su pos en x y z because reasons
+			points [i].startColor = new Color(i,i,0f);	//Color de las particulas
+			points [i].startSize = 0.1f;	//Tamaño de las particulas
 		}
 	}
 
 	private float funcionFeliz(float x){
 
-		x = (x + (borderSize.x / 2)) / (borderSize.x);
+		x = (x + (borderSize.x / 2)) / (borderSize.x); //Normalizacion
 
-		x += deltaMovement;
+		x += deltaMovement;	//Para que se mueva la funcion
 
-		x *= Mathf.PI * 2;
+		x *= Mathf.PI * 2; //x*2pi
 
-		x = amplitude * Mathf.Sin(frequency * x);
+		x = amplitude * Mathf.Sin(frequency * x); //Regresa el valor de la funciom en "y"
 
 		return x;
 	}
 
 	void Update () {
 
-		deltaMovement += 0.01f;
+		deltaMovement += 0.01f;	//Aumenta para que se mueva la linea
 
-		if (deltaMovement >= 1 ){
+		if (deltaMovement >= 1 ){	//La resetea cuando llegua a 1
 			deltaMovement = 0;
 		}
 		
-		CreatePoints ();
+		CreatePoints ();	//Manda a reposicionar los puntos
 
-		p.SetParticles(points, points.Length);
+		p.SetParticles(points, points.Length);	//Crea el sistema de particulas con el arreglo
 
-		if(Input.GetKey(KeyCode.W) && amplitude < borderSize.y/2){
-			amplitude+=0.01f;
-			CreatePoints();
+		//Input de para cambiar la frecuencia y amplitud
+		if(Input.GetKey(KeyCode.UpArrow) && amplitude < borderSize.y/2){
+			amplitude += 0.01f;
 		}
-		if(Input.GetKey(KeyCode.S) && amplitude > 0){
-			amplitude-=0.01f;
-			CreatePoints();
+		if(Input.GetKey(KeyCode.DownArrow) && amplitude > 0){
+			amplitude -= 0.01f;
 		}
-		if(Input.GetKey(KeyCode.A)){
-			frequency-=0.1f;
-			CreatePoints();
+		if(Input.GetKey(KeyCode.LeftArrow) && frequency > 0){
+			frequency -= 0.1f;
+		} 
+		if(Input.GetKey(KeyCode.RightArrow) && frequency < 20){
+			frequency += 0.1f;
 		}
-		if(Input.GetKey(KeyCode.D)){
-			frequency+=0.1f;
-			CreatePoints();
-		}
-
-	}
-
-	private float Sine (float x){
-		return amplitude * Mathf.Sin(2 * Mathf.PI * x);
 	}
 }
 
