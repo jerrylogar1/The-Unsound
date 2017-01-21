@@ -1,0 +1,228 @@
+fileFormatVersion: 2
+guid: 1f4a525b990ae47fba9670fd0e2b05b0
+timeCreated: 1485024461
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Twinkletwinkle_0
+    21300002: Twinkletwinkle_1
+    21300004: Twinkletwinkle_2
+    21300006: Twinkletwinkle_3
+    21300008: Twinkletwinkle_4
+    21300010: Twinkletwinkle_5
+    21300012: Twinkletwinkle_6
+    21300014: Twinkletwinkle_7
+    21300016: Twinkletwinkle_8
+    21300018: Twinkletwinkle_9
+    21300020: Twinkletwinkle_10
+    21300022: Twinkletwinkle_11
+    21300024: Twinkletwinkle_12
+    21300026: Twinkletwinkle_13
+    21300028: Twinkletwinkle_14
+    21300030: Twinkletwinkle_15
+    21300032: Twinkletwinkle_16
+    21300034: Twinkletwinkle_17
+    21300036: Twinkletwinkle_18
+    21300038: Twinkletwinkle_19
+    21300040: Twinkletwinkle_20
+    21300042: Twinkletwinkle_21
+    21300044: Twinkletwinkle_22
+    21300046: Twinkletwinkle_23
+    21300048: Twinkletwinkle_24
+    21300050: Twinkletwinkle_25
+    21300052: Twinkletwinkle_26
+    21300054: Twinkletwinkle_27
+    21300056: Twinkletwinkle_28
+    21300058: Twinkletwinkle_29
+    21300060: Twinkletwinkle_30
+    21300062: Twinkletwinkle_31
+    21300064: Twinkletwinkle_32
+    21300066: Twinkletwinkle_33
+    21300068: Twinkletwinkle_34
+    21300070: Twinkletwinkle_35
+    21300072: Twinkletwinkle_36
+    21300074: Twinkletwinkle_37
+    21300076: Twinkletwinkle_38
+    21300078: Twinkletwinkle_39
+    21300080: Twinkletwinkle_40
+    21300082: Twinkletwinkle_41
+    21300084: Twinkletwinkle_42
+    21300086: Twinkletwinkle_43
+    21300088: Twinkletwinkle_44
+    21300090: Twinkletwinkle_45
+    21300092: Twinkletwinkle_46
+    21300094: Twinkletwinkle_47
+    21300096: Twinkletwinkle_48
+    21300098: Twinkletwinkle_49
+    21300100: Twinkletwinkle_50
+    21300102: Twinkletwinkle_51
+    21300104: Twinkletwinkle_52
+    21300106: Twinkletwinkle_53
+    21300108: Twinkletwinkle_54
+    21300110: Twinkletwinkle_55
+    21300112: Twinkletwinkle_56
+    21300114: Twinkletwinkle_57
+    21300116: Twinkletwinkle_58
+    21300118: Twinkletwinkle_59
+    21300120: Twinkletwinkle_60
+    21300122: Twinkletwinkle_61
+    21300124: Twinkletwinkle_62
+    21300126: Twinkletwinkle_63
+    21300128: Twinkletwinkle_64
+    21300130: Twinkletwinkle_65
+    21300132: Twinkletwinkle_66
+    21300134: Twinkletwinkle_67
+    21300136: Twinkletwinkle_68
+    21300138: Twinkletwinkle_69
+    21300140: Twinkletwinkle_70
+    21300142: Twinkletwinkle_71
+    21300144: Twinkletwinkle_72
+    21300146: Twinkletwinkle_73
+    21300148: Twinkletwinkle_74
+    21300150: Twinkletwinkle_75
+    21300152: Twinkletwinkle_76
+    21300154: Twinkletwinkle_77
+    21300156: Twinkletwinkle_78
+    21300158: Twinkletwinkle_79
+    21300160: Twinkletwinkle_80
+    21300162: Twinkletwinkle_81
+    21300164: Twinkletwinkle_82
+    21300166: Twinkletwinkle_83
+    21300168: Twinkletwinkle_84
+    21300170: Twinkletwinkle_85
+    21300172: Twinkletwinkle_86
+    21300174: Twinkletwinkle_87
+    21300176: Twinkletwinkle_88
+    21300178: Twinkletwinkle_89
+    21300180: Twinkletwinkle_90
+    21300182: Twinkletwinkle_91
+    21300184: Twinkletwinkle_92
+    21300186: Twinkletwinkle_93
+    21300188: Twinkletwinkle_94
+    21300190: Twinkletwinkle_95
+    21300192: Twinkletwinkle_96
+    21300194: Twinkletwinkle_97
+    21300196: Twinkletwinkle_98
+    21300198: Twinkletwinkle_99
+    21300200: Twinkletwinkle_100
+    21300202: Twinkletwinkle_101
+    21300204: Twinkletwinkle_102
+    21300206: Twinkletwinkle_103
+    21300208: Twinkletwinkle_104
+    21300210: Twinkletwinkle_105
+    21300212: Twinkletwinkle_106
+    21300214: Twinkletwinkle_107
+    21300216: Twinkletwinkle_108
+    21300218: Twinkletwinkle_109
+    21300220: Twinkletwinkle_110
+    21300222: Twinkletwinkle_111
+    21300224: Twinkletwinkle_112
+    21300226: Twinkletwinkle_113
+    21300228: Twinkletwinkle_114
+    21300230: Twinkletwinkle_115
+    21300232: Twinkletwinkle_116
+    21300234: Twinkletwinkle_117
+    21300236: Twinkletwinkle_118
+    21300238: Twinkletwinkle_119
+    21300240: Twinkletwinkle_120
+    21300242: Twinkletwinkle_121
+    21300244: Twinkletwinkle_122
+    21300246: Twinkletwinkle_123
+    21300248: Twinkletwinkle_124
+    21300250: Twinkletwinkle_125
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 1022, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Twinkletwinkle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Twinkletwinkle_1
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 1024
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
