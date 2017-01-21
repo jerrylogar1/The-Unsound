@@ -10,6 +10,7 @@ public class MainTheMenu : MonoBehaviour {
 	public bool isCredits;
 	public bool isEnd;
 	public bool isMain;
+	public bool isGame;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,7 @@ public class MainTheMenu : MonoBehaviour {
 
 	void OnMouseUp () {
 		if (isStart) {
-			SceneManager.LoadScene("GameScene");
+			SceneManager.LoadScene("InstructionScene");
 			GetComponent<Renderer> ().material.color = Color.cyan;
 		}
 
@@ -34,6 +35,11 @@ public class MainTheMenu : MonoBehaviour {
 
 		if (isMain) {
 			SceneManager.LoadScene ("Menu");
+			GetComponent<Renderer> ().material.color = Color.cyan;
+		}
+
+		if (isGame) {
+			SceneManager.LoadScene ("Game");
 			GetComponent<Renderer> ().material.color = Color.cyan;
 		}
 
