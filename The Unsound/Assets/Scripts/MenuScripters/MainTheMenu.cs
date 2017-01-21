@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainTheMenu : MonoBehaviour {
 
 	public bool isStart;
-	public bool isSettings;
+	public bool isCredits;
 	public bool isEnd;
 	public bool isMain;
 
@@ -27,8 +27,8 @@ public class MainTheMenu : MonoBehaviour {
 			GetComponent<Renderer> ().material.color = Color.cyan;
 		}
 
-		if (isSettings) {
-			SceneManager.LoadScene ("SettingsMenu");
+		if (isCredits) {
+			SceneManager.LoadScene ("CreditsMenu");
 			GetComponent<Renderer> ().material.color = Color.cyan;
 		}
 
