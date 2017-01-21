@@ -2,71 +2,78 @@
 
 public class OsciloscopeParticles : MonoBehaviour {
 
-	public int resolution = 50;
-
-	private int currentResolution;
 	private ParticleSystem.Particle[] points;
 	private ParticleSystem p;
 
 	public float amplitude;
 	public float frequency;
+	private int nBolitas = 1000;// ulises 
+	private float increment;
+	private float deltaMovement = 0;
 
 	private Vector2 borderSize;
 
 	void Start(){
 		p = gameObject.GetComponent<ParticleSystem> ();
-		amplitude = 1;
-		frequency = 2;
+		amplitude = 0.1f;
+		frequency = 2f;
 		borderSize = gameObject.GetComponentInParent<BoxCollider2D> ().size;
+		increment = borderSize.x / nBolitas; //Delta x porque son 500 bolitas entre el tamaño del rectangulo
+		CreatePoints();
 	}
 
 	private void CreatePoints () {
-		currentResolution = resolution * (int)amplitude;
-		points = new ParticleSystem.Particle[resolution];
-		float increment = (borderSize.x) / (resolution - 1);
-		//resolution = (int)(borderSize.x/0.1f) - 1;
-		//float increment = resolution;
-		for(int i = 0; i < resolution; i++){
-			float x = i * increment;
-			points[i].position = new Vector3(x - (borderSize.x/2), 0f, 0f);
-			points[i].color = new Color(x, 0f, 0f);
+		points = new ParticleSystem.Particle[nBolitas];
+		for (int i = 0; i < nBolitas; i++) {
+			points [i].position = new Vector3 (increment*i - borderSize.x/2, 0f,funcionFeliz(increment*i));
+
+			points[i].color = new Color(i, 0f, 0f);
 			points[i].size = 0.1f;
 		}
 	}
 
+	private float funcionFeliz(float x){
+
+		x = (x + (borderSize.x / 2)) / (borderSize.x);
+
+		x += deltaMovement;
+
+		x *= Mathf.PI * 2;
+
+		x = amplitude * Mathf.Sin(frequency * x);
+
+		return x;
+	}
+
 	void Update () {
 
-		if(Input.GetKeyDown(KeyCode.UpArrow)){
-			amplitude+=0.5f;
-			CreatePoints();
-		}
-		if(Input.GetKeyDown(KeyCode.DownArrow)){
-			amplitude-=0.5f;
-			CreatePoints();
-		}
-		if(Input.GetKeyDown(KeyCode.A)){
-			frequency-=0.5f;
-			CreatePoints();
-		}
-		if(Input.GetKeyDown(KeyCode.D)){
-			frequency+=0.5f;
-			CreatePoints();
-		}
+		deltaMovement += 0.01f;
 
-		if (currentResolution != resolution || points == null) {
-			CreatePoints();
+		if (deltaMovement >= 1 ){
+			deltaMovement = 0;
 		}
+		
+		CreatePoints ();
 
-		for (int i = 0; i < resolution; i++) {
-			Vector3 p = points[i].position;
-			//p.z = Sine(p.x);
-			p.z = 0;
-			points[i].position = p;
-			Color c = points[i].color;
-			c.g = p.z;
-			points[i].color = c;
-		}
 		p.SetParticles(points, points.Length);
+
+		if(Input.GetKey(KeyCode.W) && amplitude < borderSize.y/2){
+			amplitude+=0.01f;
+			CreatePoints();
+		}
+		if(Input.GetKey(KeyCode.S) && amplitude > 0){
+			amplitude-=0.01f;
+			CreatePoints();
+		}
+		if(Input.GetKey(KeyCode.A)){
+			frequency-=0.1f;
+			CreatePoints();
+		}
+		if(Input.GetKey(KeyCode.D)){
+			frequency+=0.1f;
+			CreatePoints();
+		}
+
 	}
 
 	private float Sine (float x){
