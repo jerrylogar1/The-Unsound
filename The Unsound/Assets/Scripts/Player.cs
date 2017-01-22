@@ -28,7 +28,7 @@ public class Player : MonoBehaviour {
 		if(Input.GetKey(KeyCode.A)){	//Izq
 			animator.SetInteger ("Direction", 3);
 			animator.SetBool ("Moving", true);
-			rb.transform.Translate (-0.02f,0,0);
+			rb.transform.Translate (-0.01f,0,0);
 		}
 
 		if(Input.GetKey(KeyCode.S)){	//Abajo
@@ -40,12 +40,19 @@ public class Player : MonoBehaviour {
 		if(Input.GetKey(KeyCode.D)){	//Derecha
 			animator.SetInteger ("Direction", 1);
 			animator.SetBool ("Moving", true);
-			rb.transform.Translate (0.02f,0,0);
+			rb.transform.Translate (0.01f,0,0);
 		}
+	}
 
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.tag.Equals("Enemy")){
+			GameManager.Instance.enemyClose ();
+		}
+	}
 
-
-
-		
+	void OnTriggerExit2D(Collider2D col){
+		if (col.tag.Equals("Enemy")){
+			GameManager.Instance.enemyLeft ();
+		}
 	}
 }
