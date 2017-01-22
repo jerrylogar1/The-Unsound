@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
 public class OsciloscopeParticles : MonoBehaviour {
 
 	private ParticleSystem.Particle[] points;
@@ -139,6 +141,10 @@ public class OsciloscopeParticles : MonoBehaviour {
 		if(matches >= 30 && enemyActive){
 			delEnemy ();
 			GameManager.Instance.enemyDead ();
+		}
+
+		if(hp<=0){
+			GameManager.Instance.endGame ();;
 		}
 
 		//print (matches);

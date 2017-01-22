@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour {
 
 	public GameObject osciloscope;
@@ -62,6 +64,10 @@ public class GameManager : MonoBehaviour {
 	public void enemyDead(){
 		closeEnemy.SendMessage ("dead");
 		StartCoroutine ("SpawnToken");
+	}
+
+	public void endGame (){
+		SceneManager.LoadScene("GameOntheOver");
 	}
 
 	IEnumerator SpawnToken(){
