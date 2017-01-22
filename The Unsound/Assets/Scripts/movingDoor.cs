@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine;
 using System.Collections;
 
-public class movingDoor : MonoBehaviour
 
+public class movingDoor : MonoBehaviour
 {
 	void Update ()
 	{
