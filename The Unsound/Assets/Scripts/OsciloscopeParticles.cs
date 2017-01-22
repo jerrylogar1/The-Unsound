@@ -27,6 +27,8 @@ public class OsciloscopeParticles : MonoBehaviour {
 
 	private float matches;
 
+	private bool brillar = false;
+
 	private Vector2 borderSize;
 
 	private bool enemyActive = false;
@@ -49,7 +51,12 @@ public class OsciloscopeParticles : MonoBehaviour {
 		
 		for (int i = 0; i < nBolitas; i++) {	//Recorre todas las bolitas
 			points [i].position = new Vector3 (increment*i - borderSize.x/2, 0f, funcionFeliz(increment*i));	//Les asigna su pos en x y z because reasons
-			points [i].startColor = new Color(0,0,0);	//Color de las particulas
+			if (brillar) {
+				points [i].startColor = new Color (1,0,0);
+			} else {
+				points [i].startColor = new Color(0,0,0);	//Color de las particulas
+
+			}
 			points [i].startSize = 0.05f;	//Tamaño de las particulas
 		}
 
@@ -117,9 +124,12 @@ public class OsciloscopeParticles : MonoBehaviour {
 			frequency += 0.05f;
 		}
 
+		brillar = false;
+
 		if(frequency + 0.005 > enemyFrequency && frequency - 0.005 < enemyFrequency){
 			if(amplitude + 0.05 > enemyAmplitude && amplitude - 0.05 < enemyAmplitude){
 				if (enemyActive) {
+					brillar = true;
 					matches++;
 				}
 

@@ -27,12 +27,11 @@ public class Player : MonoBehaviour
 		vDirection = Input.GetAxis ("Vertical");
 		Vector2 movementVector;
 
-		print (hDirection);
+		//print (hDirection);
 
 		if (hDirection != 0 || vDirection != 0) {
 			movementVector = new Vector2 (hDirection, vDirection);
 			movementVector = movementVector.normalized*.04f; 
-			isMoving = true;
 
 		} 
 		else 
@@ -46,17 +45,23 @@ public class Player : MonoBehaviour
 
 		if (Input.GetKey (KeyCode.W)) {	//Arriba
 			playerDirection = 0;
+			isMoving = true;
 		}
 		if (Input.GetKey (KeyCode.A)) {	//Izq
 			playerDirection = 3;
+			isMoving = true;
 		}
 		if (Input.GetKey (KeyCode.S)) {	//Abajo
 			playerDirection = 2;
+			isMoving = true;
 		}
 		if (Input.GetKey (KeyCode.D)) {	//Derecha
 			playerDirection = 1;
+			isMoving = true;
 
 		}
+		if(Input.GetKeyUp(KeyCode.W)||Input.GetKeyUp(KeyCode.S)||Input.GetKeyUp(KeyCode.D)||Input.GetKeyUp(KeyCode.A))
+			isMoving = false;
 
 		if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.D)) {
 			rb.transform.Translate (movementVector);

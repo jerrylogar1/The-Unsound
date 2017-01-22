@@ -93,6 +93,9 @@ public class GameManager : MonoBehaviour {
 			newToken.GetComponent<SpriteRenderer> ().color = new Color (0.40f,0.49f,0.9f);
 			Destroy(totems [id]);
 			break;
+		default://Boss
+			print("Ganaste");
+			break;
 
 		}
 		Destroy (closeEnemy);
