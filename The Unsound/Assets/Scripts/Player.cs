@@ -7,7 +7,6 @@ public class Player : MonoBehaviour {
 	private Animator animator; 
 	private float speed;
 	private Rigidbody2D rb;
-
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();
