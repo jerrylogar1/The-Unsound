@@ -62,26 +62,32 @@ public class BossBehaviourr : MonoBehaviour {
 		case  Status.CHASE:
 			{
 
-				//transicion de animaciones
-				if(Input.GetKey(KeyCode.W)){	//Arriba
-					animator.SetInteger ("Direction", 3);
-					animator.SetBool ("Moving", true);
-				}
+				//this.transform.position.x <= player.transform.position.x
+				//this.transform.position.y <= player.transform.position.y
+				//Mathf.Abs(this.transform.position.x - player.transform.position.x);
+				float auxx;
+				float auxy;
+				auxx = this.transform.position.x - player.transform.position.x;
+				auxy=this.transform.position.y - player.transform.position.y;
+				if (Mathf.Abs (auxx) <= Mathf.Abs (auxy)) {//Vertical
 
-				if(Input.GetKey(KeyCode.A)){	//Izq
-					animator.SetInteger ("Direction", 2);
-					animator.SetBool ("Moving", true);
+					if (auxy > 0) {
+						animator.SetInteger ("Direction", 0);
+						animator.SetBool ("Moving", true);
+					} else {
+						animator.SetInteger ("Direction", 3);
+						animator.SetBool ("Moving", true);
+					}
+				} else { //horizonal
+					if (auxx > 0) {
+						animator.SetInteger ("Direction", 2); //Derecha
+						animator.SetBool ("Moving", true);
+					} else {
+						animator.SetInteger ("Direction", 1);
+						animator.SetBool ("Moving", true);
+					}
 				}
-
-				if(Input.GetKey(KeyCode.S)){	//Abajo
-					animator.SetInteger ("Direction", 0);
-					animator.SetBool ("Moving", true);
-				}
-
-				if(Input.GetKey(KeyCode.D)){	//Derecha
-					animator.SetInteger ("Direction", 1);
-					animator.SetBool ("Moving", true);
-				}
+					
 
 				//movimiento
 				transform.position = Vector2.Lerp (transform.position, player.position, bossSpeed*Time.deltaTime); 
