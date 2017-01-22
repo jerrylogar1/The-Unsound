@@ -119,19 +119,22 @@ public class OsciloscopeParticles : MonoBehaviour {
 
 		if(frequency + 0.005 > enemyFrequency && frequency - 0.005 < enemyFrequency){
 			if(amplitude + 0.05 > enemyAmplitude && amplitude - 0.05 < enemyAmplitude){
-				matches++;
+				if (enemyActive) {
+					matches++;
+				}
+
 			}
 		}
 
-		if(matches > 15){
-			print("ganaste");
-			matches = 0;
+		if(matches >= 30 && enemyActive){
+			delEnemy ();
+			GameManager.Instance.enemyDead ();
 		}
+
+		//print (matches);
 
 		//print ("Frecuencia: " + frequency + " frecuencia enemiga: " + enemyFrequency);
 		//print ("Amplitud: " + amplitude + " amplitud enemiga: " + enemyAmplitude);
-
-
 			
 	}
 
@@ -152,6 +155,7 @@ public class OsciloscopeParticles : MonoBehaviour {
 		StopCoroutine ("StartTimer");
 		StartCoroutine("FadeWave");
 		StartCoroutine ("ResetTimer");
+		matches = 0;
 	}
 		
 	IEnumerator FadeWave() {

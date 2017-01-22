@@ -39,7 +39,7 @@ public class MainTheMenu : MonoBehaviour {
 		}
 
 		if (isGame) {
-			SceneManager.LoadScene ("AndyScene");
+			SceneManager.LoadScene ("Main");
 			GetComponent<Renderer> ().material.color = Color.cyan;
 		}
 
