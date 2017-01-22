@@ -8,7 +8,7 @@ public class activate_boss : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D externalObject)
 	{
-		Debug.Log (externalObject.name);
+		//Debug.Log (externalObject.name);
 		if (externalObject.tag.Equals("Player") &&
 			boss.bossStatus == BossBehaviourr.Status.WAITING) 
 		{
