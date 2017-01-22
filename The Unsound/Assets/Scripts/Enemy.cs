@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	public GameObject token;
+	public int id = 0;
 
 	// Use this for initialization
 	void Start () {

@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour {
 
 	public Canvas c;
 
-	private int enemiesDead = 0;
-
 	private Image[] tokens;
+
+	public GameObject[] totems;
 
 	private static GameManager instance = null;
 
@@ -66,9 +66,35 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator SpawnToken(){
 		yield return new WaitForSeconds (5);
-		Instantiate (token, closeEnemy.transform.position, new Quaternion());
+
+
+		int id = closeEnemy.GetComponent<Enemy> ().id;
+
+		GameObject newToken = Instantiate (token, closeEnemy.transform.position, new Quaternion());
+
+		switch(id) {
+
+		case 0://Verde
+			tokens [id].color = new Color (1, 1, 1);
+			Destroy(totems [id]);
+			break;
+		case 1://Morado
+			tokens [id].color = new Color (0.60f, 0.13f, 0.79f);
+			newToken.GetComponent<SpriteRenderer> ().color = new Color (0.60f, 0.13f, 0.79f);
+			Destroy(totems [id]);
+			break;
+		case 2://Rosa
+			tokens [id].color = new Color (0.89f,0.09f,0.52f);
+			newToken.GetComponent<SpriteRenderer> ().color = new Color (0.89f,0.09f,0.52f);
+			Destroy(totems [id]);
+			break;
+		case 3://Azul
+			tokens [id].color = new Color (0.40f,0.49f,0.9f);
+			newToken.GetComponent<SpriteRenderer> ().color = new Color (0.40f,0.49f,0.9f);
+			Destroy(totems [id]);
+			break;
+
+		}
 		Destroy (closeEnemy);
-		tokens[enemiesDead].color = new Color (1, 1, 1);
-		enemiesDead++;
 	}
 }

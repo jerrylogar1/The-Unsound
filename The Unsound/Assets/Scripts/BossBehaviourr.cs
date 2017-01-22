@@ -37,7 +37,7 @@ public class BossBehaviourr : MonoBehaviour {
 	}
 
 	void Update () {
-		print (bossStatus);
+		//print (bossStatus);
 		switch(bossStatus)
 		{	
 		case Status.WAITING:
