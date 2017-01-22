@@ -27,18 +27,22 @@ public class Player : MonoBehaviour
 		vDirection = Input.GetAxis ("Vertical");
 		Vector2 movementVector;
 
+		print (hDirection);
+
 		if (hDirection != 0 || vDirection != 0) {
 			movementVector = new Vector2 (hDirection, vDirection);
 			movementVector = movementVector.normalized*.04f; 
 			isMoving = true;
-			rb.transform.Translate (movementVector);
+
 		} 
 		else 
 		{
 			isMoving = false;
+			movementVector = new Vector2 (0, 0);
 		}
-		animator.SetInteger ("Direction", playerDirection);
-		animator.SetBool ("Moving", isMoving);
+
+		//animator.SetInteger ("Direction", playerDirection);
+		//animator.SetBool ("Moving", isMoving);
 
 		if (Input.GetKey (KeyCode.W)) {	//Arriba
 			playerDirection = 0;
@@ -51,7 +55,15 @@ public class Player : MonoBehaviour
 		}
 		if (Input.GetKey (KeyCode.D)) {	//Derecha
 			playerDirection = 1;
+
 		}
+
+		if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.D)) {
+			rb.transform.Translate (movementVector);
+		}
+
+		animator.SetInteger ("Direction", playerDirection);
+		animator.SetBool ("Moving", isMoving);
 
 
 	}

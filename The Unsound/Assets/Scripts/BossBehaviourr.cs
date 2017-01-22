@@ -87,14 +87,15 @@ public class BossBehaviourr : MonoBehaviour {
 				transform.position = Vector2.Lerp (transform.position, player.position, bossSpeed*Time.deltaTime); 
 
 				float distance = Vector2.Distance (transform.position, player.position); //calcula distacia
-				Debug.Log (distance);
+				//Debug.Log (distance);
 
 				if (distance > 3.5f) {//revisa distancia si se alejo
 					bossStatus = Status.RESET; //resetea jefe
 				} 
 				else if (distance < .39f) // revisa distancia si se acerco
 				{
-					Application.LoadLevel(3);//pierdes y resetea nivel
+					//Application.LoadLevel(3);//pierdes y resetea nivel
+					SceneManager.LoadScene("Menu");
 				}
 
 			}
