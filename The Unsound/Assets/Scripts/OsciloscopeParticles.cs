@@ -117,8 +117,8 @@ public class OsciloscopeParticles : MonoBehaviour {
 			frequency += 0.05f;
 		}
 
-		if(frequency + 0.001 > enemyFrequency && frequency - 0.001 < enemyFrequency){
-			if(amplitude + 0.01 > enemyAmplitude && amplitude - 0.01 < enemyAmplitude){
+		if(frequency + 0.005 > enemyFrequency && frequency - 0.005 < enemyFrequency){
+			if(amplitude + 0.05 > enemyAmplitude && amplitude - 0.05 < enemyAmplitude){
 				matches++;
 			}
 		}
@@ -127,6 +127,11 @@ public class OsciloscopeParticles : MonoBehaviour {
 			print("ganaste");
 			matches = 0;
 		}
+
+		//print ("Frecuencia: " + frequency + " frecuencia enemiga: " + enemyFrequency);
+		//print ("Amplitud: " + amplitude + " amplitud enemiga: " + enemyAmplitude);
+
+
 			
 	}
 
