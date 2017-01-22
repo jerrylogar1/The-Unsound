@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BossBehaviourr : MonoBehaviour {
+	
 	public enum Status
 	{
 		WAITING,
@@ -11,6 +12,7 @@ public class BossBehaviourr : MonoBehaviour {
 		CONFRONT,
 		RESET
 	}
+
 	public Transform player;
 	public 	Status bossStatus;
 	[Range(0.0f , 5.0f)]
@@ -19,8 +21,11 @@ public class BossBehaviourr : MonoBehaviour {
 	private Vector3 startingPoint;
 	private bool executeMovemnt;
 	Coroutine myCoroutine;
-	// Use this for initialization
+
+	private Animator animator; 
+
 	void Start () {
+		animator = GetComponent<Animator> ();
 		startingPoint = transform.position;
 	}
 	
@@ -42,7 +47,7 @@ public class BossBehaviourr : MonoBehaviour {
 		{	
 		case Status.WAITING:
 			{
-				
+				animator.SetBool ("Moving", false);
 			}
 			break;
 		case Status.CONFRONT:
@@ -56,18 +61,42 @@ public class BossBehaviourr : MonoBehaviour {
 			}break;
 		case  Status.CHASE:
 			{
-				
-				transform.position = Vector2.Lerp (transform.position, player.position, bossSpeed*Time.deltaTime);
-				float distance = Vector2.Distance (transform.position, player.position);
-				Debug.Log (distance);
-				if (distance > 3.5f) {//SE ALEJO
-					bossStatus = Status.RESET;
-				} 
-				else if (distance < .39f) //PEGA
-				{
-					//RESET AL MENU  PRINCIPAL
-					Application.LoadLevel(3);
+
+				//transicion de animaciones
+				if(Input.GetKey(KeyCode.W)){	//Arriba
+					animator.SetInteger ("Direction", 3);
+					animator.SetBool ("Moving", true);
 				}
+
+				if(Input.GetKey(KeyCode.A)){	//Izq
+					animator.SetInteger ("Direction", 2);
+					animator.SetBool ("Moving", true);
+				}
+
+				if(Input.GetKey(KeyCode.S)){	//Abajo
+					animator.SetInteger ("Direction", 0);
+					animator.SetBool ("Moving", true);
+				}
+
+				if(Input.GetKey(KeyCode.D)){	//Derecha
+					animator.SetInteger ("Direction", 1);
+					animator.SetBool ("Moving", true);
+				}
+
+				//movimiento
+				transform.position = Vector2.Lerp (transform.position, player.position, bossSpeed*Time.deltaTime); 
+
+				float distance = Vector2.Distance (transform.position, player.position); //calcula distacia
+				Debug.Log (distance);
+
+				if (distance > 3.5f) {//revisa distancia si se alejo
+					bossStatus = Status.RESET; //resetea jefe
+				} 
+				else if (distance < .39f) // revisa distancia si se acerco
+				{
+					Application.LoadLevel(3);//pierdes y resetea nivel
+				}
+
 			}
 			break;
 		case  Status.RESET:
@@ -81,3 +110,28 @@ public class BossBehaviourr : MonoBehaviour {
 		}
 	}
 }
+
+
+/*
+
+	void Update () {
+
+	}
+
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.tag.Equals("Enemy")){
+			GameManager.Instance.enemyClose (col.gameObject);
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D col){
+		if (col.tag.Equals("Enemy")){
+			GameManager.Instance.enemyLeft ();
+		}
+	}
+}
+
+  
+  
+ 
+ * */

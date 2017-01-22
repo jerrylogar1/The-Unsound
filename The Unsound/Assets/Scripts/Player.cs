@@ -2,55 +2,70 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
-	private Animator animator; 
+	private Animator animator;
 	private float speed;
 	private Rigidbody2D rb;
+	[HideInInspector]
+	public int playerDirection;
+	bool isMoving;
+
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		animator = GetComponent<Animator> ();
 		rb = GetComponent<Rigidbody2D> ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+		float hDirection, vDirection;
+		hDirection = Input.GetAxis ("Horizontal");
+		vDirection = Input.GetAxis ("Vertical");
+		Vector2 movementVector;
 
-		animator.SetBool ("Moving", false);
+		if (hDirection != 0 || vDirection != 0) {
+			movementVector = new Vector2 (hDirection, vDirection);
+			movementVector = movementVector.normalized*.04f; 
+			isMoving = true;
+			rb.transform.Translate (movementVector);
+		} 
+		else 
+		{
+			isMoving = false;
+		}
+		animator.SetInteger ("Direction", playerDirection);
+		animator.SetBool ("Moving", isMoving);
 
-		if(Input.GetKey(KeyCode.W)){	//Arriba
-			animator.SetInteger ("Direction", 0);
-			animator.SetBool ("Moving", true);
-			rb.transform.Translate (0,0.04f,0);
+		if (Input.GetKey (KeyCode.W)) {	//Arriba
+			playerDirection = 0;
+		}
+		if (Input.GetKey (KeyCode.A)) {	//Izq
+			playerDirection = 3;
+		}
+		if (Input.GetKey (KeyCode.S)) {	//Abajo
+			playerDirection = 2;
+		}
+		if (Input.GetKey (KeyCode.D)) {	//Derecha
+			playerDirection = 1;
 		}
 
-		if(Input.GetKey(KeyCode.A)){	//Izq
-			animator.SetInteger ("Direction", 3);
-			animator.SetBool ("Moving", true);
-			rb.transform.Translate (-0.04f,0,0);
-		}
 
-		if(Input.GetKey(KeyCode.S)){	//Abajo
-			animator.SetInteger ("Direction", 2);
-			animator.SetBool ("Moving", true);
-			rb.transform.Translate (0,-0.04f,0);
-		}
-
-		if(Input.GetKey(KeyCode.D)){	//Derecha
-			animator.SetInteger ("Direction", 1);
-			animator.SetBool ("Moving", true);
-			rb.transform.Translate (0.04f,0,0);
-		}
 	}
 
-	void OnTriggerEnter2D(Collider2D col){
-		if (col.tag.Equals("Enemy")){
+	void OnTriggerEnter2D (Collider2D col)
+	{
+		if (col.tag.Equals ("Enemy")) {
 			GameManager.Instance.enemyClose (col.gameObject);
 		}
 	}
 
-	void OnTriggerExit2D(Collider2D col){
-		if (col.tag.Equals("Enemy")){
+	void OnTriggerExit2D (Collider2D col)
+	{
+		if (col.tag.Equals ("Enemy")) {
 			GameManager.Instance.enemyLeft ();
 		}
 	}

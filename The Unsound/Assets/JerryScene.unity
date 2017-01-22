@@ -215,6 +215,26 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 20048230186006472, guid: 59deffd7686fe4362800822c016ef7d8,
+        type: 2}
+      propertyPath: orthographic size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 20048230186006472, guid: 59deffd7686fe4362800822c016ef7d8,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20048230186006472, guid: 59deffd7686fe4362800822c016ef7d8,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20048230186006472, guid: 59deffd7686fe4362800822c016ef7d8,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59deffd7686fe4362800822c016ef7d8, type: 2}
   m_IsPrefabParent: 0
@@ -262,6 +282,10 @@ Prefab:
       propertyPath: boss
       value: 
       objectReference: {fileID: 902516185}
+    - target: {fileID: 4770466727998992, guid: 056ba8293ddf8bc40a549b528d5fda94, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 056ba8293ddf8bc40a549b528d5fda94, type: 2}
   m_IsPrefabParent: 0

@@ -5,13 +5,13 @@ using UnityEngine;
 public class activate_boss : MonoBehaviour {
 	
 	public BossBehaviourr boss;
-	int count = 0;
 
 	void OnTriggerEnter2D(Collider2D externalObject)
 	{
 		Debug.Log (externalObject.name);
-		if (externalObject.tag == "Player" && count < 1) {
-			count = count + 1;
+		if (externalObject.tag == "Player" &&
+			boss.bossStatus == BossBehaviourr.Status.WAITING) 
+		{
 			boss.bossStatus = BossBehaviourr.Status.CONFRONT;
 		}
 	}
