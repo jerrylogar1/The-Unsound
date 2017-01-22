@@ -4,18 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-<<<<<<< HEAD
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
   - enabled: 1
-    path: Assets/Scenes/InstructionScene.unity
-  - enabled: 1
     path: Assets/Scenes/CreditsMenu.unity
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-  - enabled: 1
     path: Assets/Scenes/GameOnTheOver.unity
-=======
-  m_Scenes: []
->>>>>>> origin/master
+  - enabled: 1
+    path: Assets/Scenes/InstructionScene.unity
+  - enabled: 1
+    path: Assets/Scenes/Main.unity

@@ -66,9 +66,15 @@ public class GameManager : MonoBehaviour {
 		StartCoroutine ("SpawnToken");
 	}
 
-	public void endGame (){
+	public void endGame(){
+		SceneManager.LoadScene ("GameOntheOver");
+	}
+
+	IEnumerator End(){
+		yield return new WaitForSeconds (5);
 		SceneManager.LoadScene("GameOntheOver");
 	}
+		
 
 	IEnumerator SpawnToken(){
 		yield return new WaitForSeconds (5);
@@ -96,11 +102,12 @@ public class GameManager : MonoBehaviour {
 			break;
 		case 3://Azul
 			tokens [id].color = new Color (0.40f,0.49f,0.9f);
-			newToken.GetComponent<SpriteRenderer> ().color = new Color (0.40f,0.49f,0.9f);
+			newToken.GetComponent<SpriteRenderer> ().color = new Color (0.40f,0.41f,0.06f);
 			Destroy(totems [id]);
 			break;
 		default://Boss
-			print("Ganaste");
+			newToken.GetComponent<SpriteRenderer> ().color = new Color (0.97f, 0.49f, 0.09f);
+			StartCoroutine ("End");
 			break;
 
 		}
